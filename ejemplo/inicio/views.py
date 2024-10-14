@@ -7,3 +7,6 @@ def inicio(request):
 
 def nosotros(request):
     return render(request, 'inicio/nosotros.html')
+
+def carrito(request):
+    return render(request, 'inicio/carrito.html')
