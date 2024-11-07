@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PLANETAS</h1>
+
+   
+    
+   {% for result in resultados %}
+    <form action="{% url "planetas" %}" method="POST" role="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label name="name">Nombre: {{result.name}}</label>
+        </div>
+        <div>
+            <label name="rotation_period">Periodo de rotación: {{result.rotation_period}}</label>
+        </div>
+        <div>
+            <label name="orbital_period">Periodo de orbita: {{result.orbital_period}}</label>
+        </div>
+        <div>
+            <label name="climate">Clima: {{result.climate}}</label>
+        </div>
+        <div>
+            <label name="terrain">Terreno: {{result.terrain}}</label>
+        </div>
+        <div>
+            <label>Achivo: </label>
+            <div>
+                <input type="file" name="archivo">
+            </div>
+        </div>
+        <button type="submit" value="enviar">Enviar</button>
+    </form>
+    {% endfor %} 
+</body>
+</html>
